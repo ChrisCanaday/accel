@@ -18,9 +18,9 @@ class ViewController: UIViewController {
         
         
         movementManager.startAccelerometerUpdates()
-        movementManager.accelerometerUpdateInterval = 1
+        movementManager.accelerometerUpdateInterval = 0.01
         
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ _ in
+        Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true){ _ in
             
             if let data = self.movementManager.accelerometerData {
                 self.label.text = String(data.acceleration.x)
