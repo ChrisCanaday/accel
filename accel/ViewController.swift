@@ -6,12 +6,28 @@
 //
 
 import UIKit
+import CoreMotion
 
 class ViewController: UIViewController {
 
+    @IBOutlet var label: UILabel!
+        
+    let movementManager = CMMotionManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        
+        movementManager.startAccelerometerUpdates()
+        movementManager.accelerometerUpdateInterval = 1
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ _ in
+            
+            if let data = self.movementManager.accelerometerData {
+                self.label.text = String(data.acceleration.x)
+            }
+        
+        }
     }
 
 
