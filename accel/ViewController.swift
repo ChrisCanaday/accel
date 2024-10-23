@@ -9,9 +9,8 @@ import UIKit
 import CoreMotion
 
 class ViewController: UIViewController {
-
-    @IBOutlet var label: UILabel!
         
+    @IBOutlet weak var label: UILabel!
     let movementManager = CMMotionManager()
     
     override func viewDidLoad() {
